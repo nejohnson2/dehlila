@@ -1,8 +1,25 @@
 var express = require('express');
+require('./elizabot.js');
+require('./elizadata.js');
+
+// Twilio
+var Twilio = require('twilio-js');
+Twilio.AccountSid = "ACad716cc4da934be6ad19bf5353312248";
+Twilio.AuthToken  = "3af91684fa2d040f587bf96955cffd82";
 
 var app = express.createServer(express.logger());
 
 app.get('/', function(request, response) {
+	var body, to, from;
+	// This goes through the Twilio Database and pulls out all texts sent to twilio
+	Twilio.SMS.all(function(err, res) {
+		console.log('body : ' + res.smsMessages[0].body);
+		console.log('to : ' + res.smsMessages[0].to);
+		console.log('from : ' + res.smsMessages[0].from);	
+		
+	  }, {accountSid: Twilio.AccountSid, to: '+16464309130'});
+
+
   response.send('Hello Dynamic Web Class!');
 });
 
