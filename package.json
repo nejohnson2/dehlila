@@ -1,7 +1,9 @@
 {
-  "name": "YOUR-APP-NAME",
+  "name": "dehlila",
   "version": "0.0.1",
   "dependencies": {
-    "express": "2.5.6"
-  }
+    "express": "2.5.x"
+  },
+  "engines": "0.8.x",
+  "npm": "1.1.x"
 }
