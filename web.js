@@ -11,6 +11,7 @@ var app = express.createServer(express.logger());
 
 app.get('/', function(request, response) {
 	var body, to, from;
+	
 	// This goes through the Twilio Database and pulls out all texts sent to twilio
 	Twilio.SMS.all(function(err, res) {
 		console.log('body : ' + res.smsMessages[0].body);
@@ -18,6 +19,11 @@ app.get('/', function(request, response) {
 		console.log('from : ' + res.smsMessages[0].from);	
 		
 	  }, {accountSid: Twilio.AccountSid, to: '+16464309130'});
+	  
+	  
+	Twilio.SMS.create({to: from, from: to, body: body}, function(err,res) {
+		console.log('Up Up and Away...SMS Sent!');
+	});	  
 
 
   response.send('Hello Dynamic Web Class!');
