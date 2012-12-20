@@ -2,8 +2,10 @@
   "name": "dehlila",
   "version": "0.0.1",
   "dependencies": {
-    "express": "2.5.x"
+    "express": "2.5.6"
   },
-  "engines": "0.8.x",
+  "engines": {
+  "node": "0.8.x",
   "npm": "1.1.x"
+  }
 }
