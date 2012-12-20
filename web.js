@@ -10,6 +10,28 @@ Twilio.AuthToken  = "3af91684fa2d040f587bf96955cffd82";
 var app = express.createServer(express.logger());
 
 app.get('/', function(request, response) {
+/*
+	var body, to, from;
+	
+	// This goes through the Twilio Database and pulls out all texts sent to twilio
+	Twilio.SMS.all(function(err, res) {
+		console.log('body : ' + res.smsMessages[0].body);
+		console.log('to : ' + res.smsMessages[0].to);
+		console.log('from : ' + res.smsMessages[0].from);	
+		
+	  }, {accountSid: Twilio.AccountSid, to: '+16464309130'});
+	  
+	  
+	Twilio.SMS.create({to: from, from: to, body: body}, function(err,res) {
+		console.log('Up Up and Away...SMS Sent!');
+	});	  
+*/
+
+
+  response.send('Hello Dynamic Web Class!');
+});
+
+app.post('/', function(request, response) {
 	var body, to, from;
 	
 	// This goes through the Twilio Database and pulls out all texts sent to twilio
@@ -28,7 +50,6 @@ app.get('/', function(request, response) {
 
   response.send('Hello Dynamic Web Class!');
 });
-
 var port = process.env.PORT || 3000;
 app.listen(port, function() {
   console.log("Listening on " + port);
