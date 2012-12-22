@@ -88,11 +88,9 @@ app.post('/', function(request, response) {
 	console.log('from : ' + from); 
 	console.log('to : ' + to); 		 
 
-/*
 	Twilio.SMS.create({to: from, from: to, body: body}, function(err,res) {
 		console.log('Up Up and Away...SMS Sent!');
 	});	 
-*/
 
 
 
