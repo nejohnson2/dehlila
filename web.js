@@ -31,8 +31,13 @@ app.get('/', function(request, response) {
   response.send('Hello Dynamic Web Class!');
 });
 
-app.post('/', function(request, response) {
-	var body, to, from;
+app.post('/', function(req, res) {
+	
+	var body = req.body.Body;
+	var from = req.body.From;
+	var to = req.body.To;
+	
+/*
 	
 	// This goes through the Twilio Database and pulls out all texts sent to twilio
 	Twilio.SMS.all(function(err, res) {
@@ -42,10 +47,16 @@ app.post('/', function(request, response) {
 		
 	  }, {accountSid: Twilio.AccountSid, to: '+16464309130'});
 	  
-	  
+*/
+
+	console.log('body : ' + body); 
+	console.log('from : ' + from); 
+	console.log('to : ' + to); 		 
+
 	Twilio.SMS.create({to: from, from: to, body: body}, function(err,res) {
 		console.log('Up Up and Away...SMS Sent!');
-	});	  
+	});	 
+
 
 
   response.send('Hello Dynamic Web Class!');
