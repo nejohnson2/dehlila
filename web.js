@@ -31,11 +31,11 @@ app.get('/', function(request, response) {
   response.send('Hello Dynamic Web Class!');
 });
 
-app.post('/', function(req, res) {
+app.post('/', function(request, response) {
 	
-	var body = req.body.body;
-	var from = req.body.from;
-	var to = req.body.to;
+	var body = request.body.Body;
+	var from = request.body.From;
+	var to = request.body.To;
 	
 /*
 	
@@ -53,9 +53,11 @@ app.post('/', function(req, res) {
 	console.log('from : ' + from); 
 	console.log('to : ' + to); 		 
 
+/*
 	Twilio.SMS.create({to: from, from: to, body: body}, function(err,res) {
 		console.log('Up Up and Away...SMS Sent!');
 	});	 
+*/
 
 
 
