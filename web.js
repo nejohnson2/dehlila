@@ -33,9 +33,9 @@ app.get('/', function(request, response) {
 
 app.post('/', function(req, res) {
 	
-	var body = req.body.Body;
-	var from = req.body.From;
-	var to = req.body.To;
+	var body = req.body.body;
+	var from = req.body.from;
+	var to = req.body.to;
 	
 /*
 	
