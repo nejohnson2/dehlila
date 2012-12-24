@@ -1,7 +1,13 @@
 var express = require('express');
 var ejs = require('ejs');
-require('./elizabot.js');
+var exec = require("child_process").exec;
+var stdin = require("child_process").stdin;
+var eliza = require('./elizabot.js');
 require('./elizadata.js');
+
+var reply;
+
+/* var eliza = new ElizaBot(); */
 
 // Twilio
 var Twilio = require('twilio-js');
@@ -45,52 +51,55 @@ app.configure(function() {
 });
 
 app.get('/', function(request, response) {
+
+
 /*
-	var body, to, from;
-	
-	// This goes through the Twilio Database and pulls out all texts sent to twilio
-	Twilio.SMS.all(function(err, res) {
-		console.log('body : ' + res.smsMessages[0].body);
-		console.log('to : ' + res.smsMessages[0].to);
-		console.log('from : ' + res.smsMessages[0].from);	
-		
-	  }, {accountSid: Twilio.AccountSid, to: '+16464309130'});
-	  
-	  
-	Twilio.SMS.create({to: from, from: to, body: body}, function(err,res) {
-		console.log('Up Up and Away...SMS Sent!');
-	});	  
+
+	response.send('<form method="POST" action="/">' +
+					'To: <input type="text" name="To" value="16464309130" />' +					
+					'From: <input type="text" name="From" value="17654307001" />' +
+					'Body: <input type="text" name="Body" />' +					
+					'<input type="submit" />' +
+					'</form>');	
+
+
+
+
 */
 
 
-  response.send('Hello Dynamic Web Class!');
+
+/*
+	
+	exec('ruby -e "puts \'Hello from Ruby!\'"', function (err, stdout, stderr) {
+    	console.log(stdout);
+    });
+*/
+
+  response.render('layout.html');
 });
 
 app.post('/', function(request, response) {
-	
+
+
 	var body = request.body.Body;
 	var from = request.body.From;
 	var to = request.body.To;
 	
-/*
 	
-	// This goes through the Twilio Database and pulls out all texts sent to twilio
-	Twilio.SMS.all(function(err, res) {
-		console.log('body : ' + res.smsMessages[0].body);
-		console.log('to : ' + res.smsMessages[0].to);
-		console.log('from : ' + res.smsMessages[0].from);	
-		
-	  }, {accountSid: Twilio.AccountSid, to: '+16464309130'});
-	  
-*/
-
 	console.log('body : ' + body); 
 	console.log('from : ' + from); 
-	console.log('to : ' + to); 		 
+	console.log('to : ' + to); 		
 
-	Twilio.SMS.create({to: from, from: to, body: body}, function(err,res) {
-		console.log('Up Up and Away...SMS Sent!');
-	});	 
+	exec('ruby ./Dehlila_Ruby/eliza2.rb '+ body + ' ', function (err, stdout, stderr) {
+	    console.log(stdout);
+	    console.log(stderr);
+	    
+		Twilio.SMS.create({to: from, from: to, body: stdout}, function(err,res) {
+			console.log('Up Up and Away...SMS Sent!');
+		});	 
+
+	});		
 
 
 
