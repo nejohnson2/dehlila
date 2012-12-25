@@ -1,6 +1,6 @@
 #require 'pat5'
 
-require File.expand_path("/Users/luce/ITP/Dehlila/Dehlila_Ruby/pat5.rb")
+require File.expand_path("./Dehlila_Ruby/pat5.rb")
 
 
 module Enumerable

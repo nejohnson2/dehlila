@@ -2,7 +2,7 @@
 #require 'rubygems'
 #require 'ruby-agi'
 #require File.expand_path("/home/nejohnson2/asterisk_agi/ElizaRuby_update/eliza1.rb")
-require '/Users/luce/ITP/Dehlila/Dehlila_Ruby/eliza1.rb'
+require './Dehlila_Ruby/eliza1.rb'
 #require 'eliza1'
 
 

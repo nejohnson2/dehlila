@@ -1,5 +1,5 @@
 #require 'pat4'
-require File.expand_path("/Users/luce/ITP/Dehlila/Dehlila_Ruby/pat4.rb")
+require File.expand_path("./Dehlila_Ruby/pat4.rb")
 
 class Pattern
   def match_segment(pattern, input, bindings, start = 0)

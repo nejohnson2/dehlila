@@ -1,5 +1,5 @@
 #require 'pat3'
-require File.expand_path("/Users/luce/ITP/Dehlila/Dehlila_Ruby/pat3.rb")
+require File.expand_path("./Dehlila_Ruby/pat3.rb")
 
 class Pattern
   # Match pattern against input in the context of the bindings
