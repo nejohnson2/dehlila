@@ -89,7 +89,8 @@ module Eliza
 #        puts eliza_rule(tester.downcase.split, rules)
         #print eliza_rule($utterance.downcase.split, rules)
 #        $Eliza_Response_PPP = eliza_rule($utterance.downcase.split, rules)
-        puts eliza_rule($utterance.downcase.split, rules)        
+#        puts eliza_rule($utterance.downcase.split, rules)        
+		 puts $utterance
       end
     end
     
