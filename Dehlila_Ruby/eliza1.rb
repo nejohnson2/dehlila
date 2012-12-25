@@ -74,11 +74,11 @@ end
 module Eliza
   class << self
     def run(rules = Rule::ELIZA_RULES)
-      $utterance = "I am sad"
+#      $utterance = "I am sad"
       utterance = ARGV[0]
 
      if utterance == nil
-        print "I am sorry I didnt understand you" 
+        puts "I am sorry I didnt understand you" 
      else
 
       #while true
@@ -125,6 +125,6 @@ end
 
 
 # 
-# if __FILE__ == $0
-#  Eliza.run
-# end
+if __FILE__ == $0
+ Eliza.run
+end
