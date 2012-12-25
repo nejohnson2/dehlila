@@ -161,7 +161,7 @@ class Rule
 end
 
 # this is used to run the file in the terminal.  did not run for Redial Project
-# Eliza.run(Rule::ELIZA_RULES2)
+ Eliza.run(Rule::ELIZA_RULES2)
 # if __FILE__ == $0
 #  Eliza.run(Rule::ELIZA_RULES2)
 # end
