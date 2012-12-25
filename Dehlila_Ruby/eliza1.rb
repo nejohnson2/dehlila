@@ -75,6 +75,7 @@ module Eliza
   class << self
     def run(rules = Rule::ELIZA_RULES)
       $utterance = "I am sad"
+      $utterance = ARGV[0]
 
      if $utterance == nil
         print "I am sorry I didnt understand you" 
@@ -82,10 +83,10 @@ module Eliza
 
       #while true
 #      	tester = 'what'
-      	tester = ARGV[0]
+#      	tester = ARGV[0]
       	# this line 'gets' the input from the user, and 'puts' it into the eliza code
 #        puts eliza_rule(gets.downcase.split, rules)
-        puts eliza_rule(tester.downcase.split, rules)
+#        puts eliza_rule(tester.downcase.split, rules)
         #print eliza_rule($utterance.downcase.split, rules)
         $Eliza_Response_PPP = eliza_rule($utterance.downcase.split, rules)
       end
@@ -123,6 +124,6 @@ end
 
 
 # 
-if __FILE__ == $0
- Eliza.run
-end
+# if __FILE__ == $0
+#  Eliza.run
+# end
