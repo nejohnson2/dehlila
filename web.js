@@ -91,7 +91,7 @@ app.post('/', function(request, response) {
 	console.log('from : ' + from); 
 	console.log('to : ' + to); 		
 
-	exec('ruby ./Dehlila_Ruby/eliza2.rb '+ body, function (err, stdout, stderr) {
+	exec('ruby ./Dehlila_Ruby/eliza2.rb "'+ body + '"', function (err, stdout, stderr) {
 	    console.log(stdout);
 	    console.log(stderr);
 	    
