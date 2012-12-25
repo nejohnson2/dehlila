@@ -1,4 +1,4 @@
-#!/usr/bin/ruby
+/usr/bin/ruby
 #require 'rubygems'
 #require 'ruby-agi'
 #require File.expand_path("/home/nejohnson2/asterisk_agi/ElizaRuby_update/eliza1.rb")
