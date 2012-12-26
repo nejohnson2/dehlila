@@ -74,21 +74,23 @@ end
 module Eliza
   class << self
     def run(rules = Rule::ELIZA_RULES)
-#      $utterance = "I am sad"
+
+	  # 'ARGV[0]' will read in anything after 'ruby ..../eliza2.rb'
+	  # it is important to note that in the web.js file, the variable
+	  # being passed is in double quotes!!  This makes the variable a
+	  # string before it gets passed into ARGV[0] 
       $utterance = ARGV[0]
 
      if $utterance == nil
         puts "I am sorry I didnt understand you" 
      else
 
-      #while true
-#      	tester = 'what'
-#      	tester = ARGV[0]
-      	# this line 'gets' the input from the user, and 'puts' it into the eliza code
-#        puts eliza_rule(gets.downcase.split, rules)
-#        puts eliza_rule(tester.downcase.split, rules)
-        #print eliza_rule($utterance.downcase.split, rules)
-#        $Eliza_Response_PPP = eliza_rule($utterance.downcase.split, rules)
+        # This was used in the original verison because it set the global variable
+        # 'Eliza_Response_PPP which was the read in the main ruby file (aka response html)
+        # $Eliza_Response_PPP = eliza_rule($utterance.downcase.split, rules)
+ 
+ 		# using puts here alows the function simply to output the response through stdout
+ 		# which is accessed in the web.js file
         puts eliza_rule($utterance.downcase.split, rules)        
 
       end
@@ -124,7 +126,7 @@ module Eliza
   end
 end
 
-
+# This does not need to be used in the node.js version of Dehlila
 # 
 # if __FILE__ == $0
 #  Eliza.run

@@ -1,15 +1,8 @@
 var express = require('express');
 var ejs = require('ejs');
 var exec = require("child_process").exec;
-var stdin = require("child_process").stdin;
-var eliza = require('./elizabot.js');
-require('./elizadata.js');
 
-var reply;
-
-/* var eliza = new ElizaBot(); */
-
-// Twilio
+// Twilio account info
 var Twilio = require('twilio-js');
 Twilio.AccountSid = "ACad716cc4da934be6ad19bf5353312248";
 Twilio.AuthToken  = "3af91684fa2d040f587bf96955cffd82";
@@ -52,59 +45,54 @@ app.configure(function() {
 
 app.get('/', function(request, response) {
 
-
 /*
-
 	response.send('<form method="POST" action="/">' +
 					'To: <input type="text" name="To" value="16464309130" />' +					
 					'From: <input type="text" name="From" value="17654307001" />' +
 					'Body: <input type="text" name="Body" />' +					
 					'<input type="submit" />' +
 					'</form>');	
-
-
-
-
 */
 
-
-
 /*
-	
+	// '-e' executes the ruby command directly
 	exec('ruby -e "puts \'Hello from Ruby!\'"', function (err, stdout, stderr) {
     	console.log(stdout);
     });
 */
 
-  response.render('layout.html');
+  response.render('main.html');
 });
 
 app.post('/', function(request, response) {
 
-
+	// info from the text message
 	var body = request.body.Body;
 	var from = request.body.From;
 	var to = request.body.To;
 	
-	
+	// print messages to the console
 	console.log('body : ' + body); 
 	console.log('from : ' + from); 
 	console.log('to : ' + to); 		
 
+	// 'exec' executes the eliza2.rb file with 'body' as the input variable 
+	// the function sends the result out 'stdout'
 	exec('ruby ./Dehlila_Ruby/eliza2.rb "'+ body + '"', function (err, stdout, stderr) {
 	    console.log(stdout);
 	    console.log(stderr);
-	    
+	  	
+	  	//reply to the incoming message with the Eliza reponse (aka stdout)  
 		Twilio.SMS.create({to: from, from: to, body: stdout}, function(err,res) {
 			console.log('Up Up and Away...SMS Sent!');
 		});	 
 
 	});		
 
-
-
   response.send('Hello Dynamic Web Class!');
 });
+
+
 var port = process.env.PORT || 3000;
 app.listen(port, function() {
   console.log("Listening on " + port);

@@ -1,10 +1,4 @@
-#/usr/bin/ruby
-#require 'rubygems'
-#require 'ruby-agi'
-#require File.expand_path("/home/nejohnson2/asterisk_agi/ElizaRuby_update/eliza1.rb")
 require './Dehlila_Ruby/eliza1.rb'
-#require 'eliza1'
-
 
 class Rule
   ELIZA_RULES2 = ELIZA_RULES + 
@@ -165,7 +159,10 @@ class Rule
 end
 
 # this is used to run the file in the terminal.  did not run for Redial Project
+# but is used in the node.js version
 Eliza.run(Rule::ELIZA_RULES2)
+
+# I dont think this is used in either version
 # if __FILE__ == $0
 #  Eliza.run(Rule::ELIZA_RULES2)
 # end
