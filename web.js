@@ -5,8 +5,8 @@ var exec = require("child_process").exec;
 // Twilio account info
 var Twilio = require('twilio-js');
 
-Twilio.AccountSid = process.env.AccountSid;
-Twilio.AuthToken  = process.env.AuthToken;
+Twilio.AccountSid = process.env.Twilio_AccountSid;
+Twilio.AuthToken  = process.env.Twilio_AuthToken;
 
 var app = express.createServer(express.logger());
 
